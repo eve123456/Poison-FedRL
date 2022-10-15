@@ -430,7 +430,7 @@ class TargAttacker:
         # print("distribution distance:", dist_distance)
         
         # self.dist_list = np.append(self.dist_list, np.array([dist_distance]))
-        self.dist_list = np.append(self.dist_list, dist_distance.detach().numpy())
+        self.dist_list = np.append(self.dist_list, dist_distance.detach().cpu().numpy())
 
         
         frac = min((self.maxat - self.attack_num) / (self.maxeps - self.eps_num),1)

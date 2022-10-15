@@ -1,0 +1,17 @@
+nohup: ignoring input
+Traceback (most recent call last):
+  File "main.py", line 4, in <module>
+    import matplotlib.pyplot as plt
+  File "/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/matplotlib/__init__.py", line 109, in <module>
+    from . import _api, _version, cbook, docstring, rcsetup
+  File "/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/matplotlib/rcsetup.py", line 27, in <module>
+    from matplotlib.colors import Colormap, is_color_like
+  File "/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/matplotlib/colors.py", line 56, in <module>
+    from matplotlib import _api, cbook, scale
+  File "/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/matplotlib/scale.py", line 23, in <module>
+    from matplotlib.ticker import (
+  File "/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/matplotlib/ticker.py", line 136, in <module>
+    from matplotlib import transforms as mtransforms
+  File "/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/matplotlib/transforms.py", line 46, in <module>
+    from matplotlib._path import (
+ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/matplotlib/_path.cpython-37m-x86_64-linux-gnu.so)

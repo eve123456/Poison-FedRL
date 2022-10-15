@@ -69,7 +69,9 @@ class VPG(nn.Module):
     def get_state_dict(self):
         return self.policy.state_dict(), self.optimizer.state_dict()
     
-    
+    def set_model_state_dict(self, model_state_dict):
+        self.policy.load_state_dict(model_state_dict)
+
     def set_state_dict(self, state_dict, optim):
         self.policy.load_state_dict(state_dict)
         self.optimizer.load_state_dict(optim)
