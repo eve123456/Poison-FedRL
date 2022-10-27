@@ -25,6 +25,7 @@ from torch.distributions import Categorical, MultivariateNormal
 
 import logging
 from datetime import datetime
+from tqdm import tqdm
 
 now = datetime.now()
 current_time = now.strftime("%m-%d %H:%M:%S")
@@ -36,7 +37,6 @@ parser.add_argument('--run', type=int, default=-1)
 # env settings
 parser.add_argument('--env', type=str, default
 ="CartPole-v0")
-parser.add_argument('--episodes', type=int, default=1000)
 parser.add_argument('--steps', type=int, default=300)
 
 # learner settings
@@ -45,21 +45,24 @@ parser.add_argument('--lr', type=float, default=1e-3)
 parser.add_argument('--gamma', type = float, default = 0.99)
 
 # Federated settings
-parser.add_argument('--agents',type = int, default=2) # number of agents
-parser.add_argument('--rounds', type = int, default = 10) # number of communication rounds
+parser.add_argument('--agents',type = int, default=8) # number of all agents
+parser.add_argument('--Magents', type = int, default =2) # number of malicious agents
+parser.add_argument('--rounds', type = int, default = 200) # number of communication rounds
+parser.add_argument('--episodes', type=int, default=50)
+parser.add_argument('--seed', type=int, default=100)
 
 
 # attack settings
 parser.add_argument('--norm', type=str, default="l2")
 parser.add_argument('--stepsize', type=float, default=0.05)
 parser.add_argument('--maxiter', type=int, default=10)
-parser.add_argument('--radius', type=float, default=0.3)
+parser.add_argument('--radius', type=float, default=1)
 parser.add_argument('--radius-s', type=float, default=0.1)
 parser.add_argument('--radius-a', type=float, default=0.3)
-parser.add_argument('--radius-r', type=float, default=0.05)
+parser.add_argument('--radius-r', type=float, default=1)
 parser.add_argument('--frac', type=float, default=1)
 # parser.add_argument('--type', type=str, default="wb", help="rand, wb, semirand")
-parser.add_argument('--type', type=str, default="targ", help="rand, wb, semirand")
+parser.add_argument('--type', type=str, default="wb", help="wb, bb, rand, semirand,targ")
 
 
 parser.add_argument('--aim', type=str, default="reward", help="reward, obs, action")
@@ -74,8 +77,8 @@ parser.set_defaults(compute=False)
 
 # file settings
 parser.add_argument('--logdir', type=str, default="logs/")
-parser.add_argument('--resdir', type=str, default="results/")
-parser.add_argument('--moddir', type=str, default="models/")
+parser.add_argument('--resdir', type=str, default="results_NT/Oct_27/", help = "results_NT/, results/")
+parser.add_argument('--moddir', type=str, default="models_NT/Oct_27/")
 parser.add_argument('--loadfile', type=str, default="")
 
 
@@ -129,7 +132,7 @@ def Agent(attack_flag = False, random_seed = 0, round_index = 1, agent_index = 1
     random_seed = random_seed 
     render = False
     update_every = 300
-    save_every = 100
+    save_every = args.episodes
     
     ########## creating environment
     env = gym.make(env_name)
@@ -140,12 +143,14 @@ def Agent(attack_flag = False, random_seed = 0, round_index = 1, agent_index = 1
     
     
     ########## file related 
-    filename = "RE_"+env_name + "_" + learner + "_A" + str(args.agents) + "_C"+ str(args.rounds)+"_n" + str(max_episodes) 
+    filename = env_name + "_" + learner + "_A" + str(args.agents) + "_M" + str(args.Magents) + "_C"+ str(args.rounds)+"_n" + str(max_episodes) 
+
+    filename += "_" + attack_type + "_" + aim
+    filename += "_s" + str(stepsize) + "_m" + str(maxiter) + "_r" + str(radius) + "_f" + str(frac) + "_c" +str(round_index)
     if attack:
-        filename += "_" + attack_type + "_" + aim
-        filename += "_s" + str(stepsize) + "_m" + str(maxiter) + "_r" + str(radius) + "_f" + str(frac) + "_c" +str(round_index)
+        filename += "_" + "malicious" + "_a"+ str(agent_index)
     else:
-        filename += "_" + "clean" + "_a"+ str(agent_index) + "_c" + str(round_index)
+        filename += "_" + "clean" + "_a"+ str(agent_index)
     
     if args.run >=0:
         filename += "_run" + str(args.run)
@@ -154,7 +159,7 @@ def Agent(attack_flag = False, random_seed = 0, round_index = 1, agent_index = 1
     # logger = get_log(args.logdir + filename + "_" +current_time)
     # logger.info(args)
     
-    rew_file = open(args.resdir + filename + ".txt", "w")
+    # rew_file = open(args.resdir + filename + ".txt", "w")
     if attack_type == "targ" or attack_type == "fgsm":        
         targ_file = open(args.resdir + filename + "_targ.txt", "w")
         targ_metrix = []
@@ -227,10 +232,11 @@ def Agent(attack_flag = False, random_seed = 0, round_index = 1, agent_index = 1
     ######### training
     for episode in range(start_episode, max_episodes):
         state = env.reset()
-        if len(state)!=1:
-            state = state[0]
+        # if len(state)!=1:
+            # state = state[0]
         rewards = []
         total_targ_actions = 0
+        
         for steps in range(max_steps):
             timestep += 1
             
@@ -250,7 +256,7 @@ def Agent(attack_flag = False, random_seed = 0, round_index = 1, agent_index = 1
                     total_targ_actions += np.linalg.norm(action - target_policy.numpy()) ** 2
 #            print(action, target_policy, total_targ_actions)
                 
-            new_state, reward, done,_, _ = env.step(action)
+            new_state, reward, done,_ = env.step(action)
             
             if attack_type == "fgsm":
 #                before_attack = new_state.copy()
@@ -312,6 +318,10 @@ def Agent(attack_flag = False, random_seed = 0, round_index = 1, agent_index = 1
                         targ_file.write(str(math.sqrt(total_targ_actions / (steps+1))) + "\n")
                         targ_metrix.append(float(total_targ_actions) / (steps+1))
                         # print("average distance to target", math.sqrt(total_targ_actions / (steps+1)))
+                
+                else:
+                    pass
+
                 policy_net.update_policy(memory)
 #                print("learner")
 #                attack_net.print_paras(policy_net.policy)
@@ -324,7 +334,8 @@ def Agent(attack_flag = False, random_seed = 0, round_index = 1, agent_index = 1
             if done or steps == max_steps-1:
                 all_rewards.append(np.sum(rewards))
                 # logger.info("episode: {}, total reward: {}\n".format(episode, np.round(np.sum(rewards), decimals = 3)))
-                rew_file.write("episode: {}, total reward: {}\n".format(episode, np.round(np.sum(rewards), decimals = 3)))
+                # rew_file.write("episode: {}, total reward: {}\n".format(episode, np.round(np.sum(rewards), decimals = 3)))
+                
                 break
         
         if (episode+1) % save_every == 0 and attack_type != "rand" and attack_type != "fgsm":
@@ -353,7 +364,7 @@ def Agent(attack_flag = False, random_seed = 0, round_index = 1, agent_index = 1
         print("total attacks: {}\n".format(attack_net.attack_num))
         print("update number:", update_num)
         
-    rew_file.close()
+    # rew_file.close()
 
     if attack_type == "targ" or attack_type == "fgsm":
         targ_file.close()
@@ -362,11 +373,10 @@ def Agent(attack_flag = False, random_seed = 0, round_index = 1, agent_index = 1
         radius_file.close()
     env.close()
     
-    return targ_metrix        
-
-
-
-
+    if attack_type == "targ":
+        return targ_metrix 
+    else:
+        np.save(args.resdir + filename + ".npy", np.array(all_rewards))
 
 
 
@@ -396,17 +406,19 @@ def Plot_Poison_Single_RL():
 
 
 
-def Poison_Fed_RL():
-    for i_round in range(args.rounds):
-        print("Federated Round", i_round+1)
-        Malicious_targ_act_frac = Agent(attack_flag=True, random_seed=0, round_index = i_round+1, agent_index = 0) # Malicious agent local train
+def Poison_Fed_RL(random_seed):
+    for i_round in tqdm(range(args.rounds)):
+        print("\n\nFederated Round", i_round+1)
+        for i_agent in range(args.Magents):
+            # Malicious agent local train
+            Agent(attack_flag=True, random_seed=random_seed, round_index = i_round+1, agent_index = i_agent+1) 
         
-        for i_agent in range(args.agents-1):
+        for i_agent in range(args.agents-args.Magents):
             # Clean agents local train
-            Clean_targ_act_frac = Agent(attack_flag=False, random_seed=0, round_index = i_round+1, agent_index = i_agent+1)
+            Agent(attack_flag=False, random_seed=random_seed, round_index = i_round+1, agent_index = i_agent+1)
         
         # Coordinator model dir
-        CO_filename = "RE_CO_" + args.env + "_" + args.learner + "_A" + str(args.agents) + "_C"+ str(args.rounds)+ "_n" + str(args.episodes) + "_c"+str(i_round+1) + "_a" + str(args.agents)
+        CO_filename = "CO_" + args.env + "_" + args.learner + "_A" + str(args.agents) + "_M" + str(args.Magents)+ "_C"+ str(args.rounds)+ "_n" + str(args.episodes) + "_c"+str(i_round+1) + "_a" + str(args.agents)
         CO_filename += "_" + args.type + "_" + args.aim + "_s" + str(args.stepsize) + "_m" + str(args.maxiter) + "_r" + str(args.radius) + "_f" + str(args.frac)
         # save for each communication round 
         args.loadfile = CO_filename # update the broadcast dir for next round of local training
@@ -415,13 +427,14 @@ def Poison_Fed_RL():
         ALL_model_state_dict = []
         # ALL_optimizer_state_dict = []
 
-        filename = "RE_"+args.env + "_" + args.learner+ "_A" + str(args.agents) + "_C"+ str(args.rounds) + "_n" + str(args.episodes)  
-        
+        filename = args.env + "_" + args.learner+ "_A" + str(args.agents) + "_M" + str(args.Magents) + "_C"+ str(args.rounds) + "_n" + str(args.episodes)  
+        filename += "_" + args.type + "_" + args.aim + "_s" + str(args.stepsize) + "_m" + str(args.maxiter) + "_r" + str(args.radius) + "_f" + str(args.frac)+"_c" + str(i_round+1)
+
         for i_agent in range(args.agents): # All agents
-            if i_agent == 0: # load poisoned model
-                i_filename = filename + "_" + args.type + "_" + args.aim + "_s" + str(args.stepsize) + "_m" + str(args.maxiter) + "_r" + str(args.radius) + "_f" + str(args.frac)+"_c" + str(i_round+1)
+            if i_agent <= args.Magents-1: # load poisoned model
+                i_filename = filename + "_" + "malicious" + "_a"+ str(i_agent+1)
             else: # load clean model
-                i_filename = filename + "_" + "clean" + "_a"+ str(i_agent)+ "_c" + str(i_round+1)
+                i_filename = filename + "_" + "clean" + "_a"+ str(i_agent-args.Magents+1)
             i_checkpoint = torch.load(args.moddir + i_filename)
         
             print("load from ", args.moddir + i_filename)
@@ -441,10 +454,12 @@ def Poison_Fed_RL():
 
 
 
-def Evaluate_Coordinator(n_round = 5, random_seed = 0, attack_flag = 1):
+def Evaluate_Coordinator(n_round = args.rounds, random_seed = 0, attack_flag = 1):
+    # n_round = 42
     for i_round in range(n_round):
+    # for i_round in range(40, n_round):
         ###### Load model
-        i_CO_filename = "RE_CO_" + args.env + "_" + args.learner+ "_A" + str(args.agents) + "_C"+ str(args.rounds) + "_n" + str(args.episodes) + "_c"+str(i_round+1) + "_a" + str(args.agents)
+        i_CO_filename = "CO_" + args.env + "_" + args.learner+ "_A" + str(args.agents) + "_M" + str(args.Magents)+ "_C"+ str(args.rounds) + "_n" + str(args.episodes) + "_c"+str(i_round+1) + "_a" + str(args.agents)
         i_CO_filename += "_" + args.type + "_" + args.aim + "_s" + str(args.stepsize) + "_m" + str(args.maxiter) + "_r" + str(args.radius) + "_f" + str(args.frac)    
         i_checkpoint = torch.load(args.moddir + i_CO_filename)
         print("load from ", args.moddir +  i_CO_filename)
@@ -475,7 +490,8 @@ def Evaluate_Coordinator(n_round = 5, random_seed = 0, attack_flag = 1):
         policy_net.set_model_state_dict(i_checkpoint['model_state_dict'])
         
         ##### Link result file for target action fraction
-        i_targ_file = open(args.resdir + i_CO_filename +"_targ" +".txt", "w")
+        if args.type == "targ":
+            i_targ_file = open(args.resdir + i_CO_filename +"_targ" +".txt", "w")
         
         ##### Testing      
         start_episode = 0
@@ -484,12 +500,16 @@ def Evaluate_Coordinator(n_round = 5, random_seed = 0, attack_flag = 1):
         all_rewards = []
         timestep = 0
         update_num = 0
+        
+
+        
         ######### training
+
         for episode in range(start_episode, args.episodes):
             state = env.reset()
-            if len(state)!=1:
-                state = state[0]
-            # rewards = []
+            # if len(state)!=1:
+                # state = state[0]
+            rewards = []
             total_targ_actions = 0
             for steps in range(args.steps):
                 timestep += 1
@@ -506,9 +526,9 @@ def Evaluate_Coordinator(n_round = 5, random_seed = 0, attack_flag = 1):
                         total_targ_actions += np.linalg.norm(action - target_policy.numpy()) ** 2
     #            print(action, target_policy, total_targ_actions)
                     
-                new_state, reward, done,_, _ = env.step(action)
+                new_state, reward, done, _ = env.step(action)
 
-                # rewards.append(reward)
+                rewards.append(reward)
                 
                 # memory.add(state_tensor, action_tensor, log_prob_tensor, reward, done)
                 
@@ -521,6 +541,10 @@ def Evaluate_Coordinator(n_round = 5, random_seed = 0, attack_flag = 1):
                             # print("average distance to target", math.sqrt(total_targ_actions / (steps+1)))
                     # policy_net.update_policy(memory)
                     # memory.clear_memory()
+                    
+                    else:
+                        all_rewards.append(np.sum(rewards))
+
                     timestep = 0
                     update_num += 1
                     break
@@ -530,21 +554,29 @@ def Evaluate_Coordinator(n_round = 5, random_seed = 0, attack_flag = 1):
             if (episode+1) % save_every == 0 and args.type != "rand" and args.type != "fgsm":
                 print("Episode", episode+1 ,"/",args.episodes)
             
-        i_targ_file.close()
+        if args.type == "targ" or args.type == "fgsm":
+            i_targ_file.close()
+        else:
+            np.save(args.resdir + i_CO_filename + ".npy", np.array(all_rewards))
+        
         env.close()
       
 
-
-
         
-def Evaluate_Coordinator_plot(n_round = 5):
+def Evaluate_Coordinator_plot(n_round = args.rounds):
+    # n_round = 42
     frac_list = []
     for i_round in range(n_round):
+    # for i_round in range(40, n_round):
         ###### Load model
-        i_CO_filename = "RE_CO_" + args.env + "_" + args.learner + "_A" + str(args.agents) + "_C"+ str(args.rounds)+ "_n" + str(args.episodes)  + "_c"+str(i_round+1) + "_a" + str(args.agents)
+        i_CO_filename = "CO_" + args.env + "_" + args.learner + "_A" + str(args.agents) + "_M" + str(args.Magents)+ "_C"+ str(args.rounds)+ "_n" + str(args.episodes)  + "_c"+str(i_round+1) + "_a" + str(args.agents)
         i_CO_filename += "_" + args.type + "_" + args.aim + "_s" + str(args.stepsize) + "_m" + str(args.maxiter) + "_r" + str(args.radius) + "_f" + str(args.frac)    
-        i_frac = np.loadtxt(args.resdir + i_CO_filename+"_targ.txt")
-        print("load from ", args.resdir +  i_CO_filename + ".txt")
+        if args.type == "targ":
+            i_frac = np.loadtxt(args.resdir + i_CO_filename+"_targ.txt")
+            print("load from ", args.resdir +  i_CO_filename + "_targ.txt")
+        else:
+            i_frac = np.load(args.resdir + i_CO_filename+".npy")
+            print("load from ", args.resdir +  i_CO_filename + ".npy")
         
         frac_list.append(i_frac)
     
@@ -557,28 +589,37 @@ def Evaluate_Coordinator_plot(n_round = 5):
     ax.plot( x_axis,  frac_mean, '*', alpha=0.9, label = "Coordinator: mean")
     
     ax.fill_between(x_axis, frac_mean - frac_std, frac_mean + frac_std, alpha=0.2, color = "green", label = "+- std")
-    plt.ylim([0,1])
+    if args.type == "targ":
+        plt.ylim([0,1])
+        plt.ylabel("Fraction of Target Actions")
+    else:
+        plt.ylabel("Mean Reward Per Episode")
     plt.xlabel("Communication Rounds (" + str(args.episodes) + " test episodes per round)")
-    plt.ylabel("Fraction of Target Actions")
+    
     plt.legend()
 
     plt.title("Coordinator Performance: "+ str(args.type) + ", " + str(args.learner) +  ", "  + str(args.env) +", " + str(args.agents)+" agents")
 
-    plt.savefig("results/fig_Oct_13/"+"Set1_CO"+".jpg")
-
-       
+    plt.savefig(args.resdir + "fig/"+ i_CO_filename +".jpg")
+     
         
 
-def Evaluate_Agents_plot():
-    filename = "RE_"+args.env + "_" + args.learner+ "_A" + str(args.agents) + "_C"+ str(args.rounds) + "_n" + str(args.episodes)  
-    for i_round in range(args.rounds):    
+def Evaluate_Agents_vs_episode_plot():
+    filename0 = args.env + "_" + args.learner+ "_A" + str(args.agents) + "_M" + str(args.Magents)+ "_C"+ str(args.rounds) + "_n" + str(args.episodes)  
+    
+    for i_round in range(args.rounds):  
+        filename = filename0 + "_" + args.type + "_" + args.aim + "_s" + str(args.stepsize) + "_m" + str(args.maxiter) + "_r" + str(args.radius) + "_f" + str(args.frac)+"_c" + str(i_round+1)  
+        
         i_targ_list = []
         for i_agent in range(args.agents): # All agents
             if i_agent == 0: # load target action fraction of the malicious agent
-                i_filename = filename + "_" + args.type + "_" + args.aim + "_s" + str(args.stepsize) + "_m" + str(args.maxiter) + "_r" + str(args.radius) + "_f" + str(args.frac)+"_c" + str(i_round+1)
+                i_filename = filename
             else: # load target action fraction of the clean agents
                 i_filename = filename + "_" + "clean" + "_a"+ str(i_agent)+ "_c" + str(i_round+1)
-            i_targ_metrix = np.loadtxt(args.resdir + i_filename + "_targ.txt")
+            if args.type == "targ":
+                i_targ_metrix = np.loadtxt(args.resdir + i_filename + "_targ.txt")
+            else:
+                i_targ_metrix = np.load(args.resdir + i_filename+".npy")
             i_targ_list.append(i_targ_metrix)
         
         i_poison_targ_metrix = i_targ_list[0]
@@ -599,24 +640,94 @@ def Evaluate_Agents_plot():
         
         ax.fill_between(x_axis, i_clean_targ_lb, i_clean_targ_ub, alpha=0.4, color = "green")
         ax.legend()
-        plt.ylim([0,1])
+        if args.type == "targ":
+            plt.ylim([0,1])
+            plt.ylabel("Fraction of Target Actions")
+        else:
+            plt.ylabel("Mean-Reward-Per-Episode")
         plt.xlabel("Train Episodes")
-        plt.ylabel("Fraction of Target Actions")
+        
         
         
 
         plt.title("Agent Performance: "+ str(args.type) + ", " + str(args.learner) +  ", "  + str(args.env) +", " + str(args.agents)+" agents, Round " +str(i_round+1) )
 
-        plt.savefig("results/fig_Oct_13/"+"Set1_c"+str(i_round+1)+".jpg")
+        plt.savefig(args.resdir + "fig_Oct_19/"+"Set3_c"+str(i_round+1)+".jpg")
 
 
 
 
+def Evaluate_Agents_vs_CRound_plot():
+    
+
+    filename0 = args.env + "_" + args.learner+ "_A" + str(args.agents) + "_M" + str(args.Magents)+ "_C"+ str(args.rounds) + "_n" + str(args.episodes)  
+    poison_targs, clean_targs, poison_targs_std, clean_targs_std = [],[], [], []
+    for i_round in range(args.rounds):   
+    # for i_round in range(42):
+        filename = filename0 +  "_" + args.type + "_" + args.aim + "_s" + str(args.stepsize) + "_m" + str(args.maxiter) + "_r" + str(args.radius) + "_f" + str(args.frac)+"_c" + str(i_round+1)
+        i_targ_list = []
+        for i_agent in range(args.agents): # All agents
+            if i_agent <= args.Magents-1: # load target action fraction of the malicious agent
+                i_filename = filename + "_" + "malicious" + "_a"+ str(i_agent+1)
+            else: # load target action fraction of the clean agents
+                i_filename = filename + "_" + "clean" + "_a"+ str(i_agent-args.Magents+1)
+            if args.type == "targ":
+                i_targ_metrix = np.loadtxt(args.resdir + i_filename + "_targ.txt")
+            else:
+                i_targ_metrix = np.load(args.resdir + i_filename+".npy")
+            i_targ_list.append(i_targ_metrix)
         
+        i_poison_targ_list = np.array(i_targ_list[:args.Magents])
+        i_poison_targ_mean = np.mean(i_poison_targ_list, axis = 0)
+        i_poison_targ, i_poison_targ_std = np.mean(i_poison_targ_mean), np.std(i_poison_targ_mean)
+
+        i_clean_targ_list = np.array(i_targ_list[args.Magents:])
+        i_clean_targ_mean = np.mean(i_clean_targ_list, axis = 0)
+        i_clean_targ, i_clean_targ_std = np.mean(i_clean_targ_mean), np.std(i_clean_targ_mean)
+        
+        # i_clean_targ_std = np.std(i_clean_targ_list, axis = 0)
+        poison_targs.append(i_poison_targ)
+        poison_targs_std.append(i_poison_targ_std)
+        clean_targs.append(i_clean_targ)
+        clean_targs_std.append(i_clean_targ_std)
+
+
+    poison_targs  = np.array(poison_targs)
+    poison_targs_std  = np.array(poison_targs_std)
+    clean_targs  = np.array(clean_targs)
+    clean_targs_std  = np.array(clean_targs_std)  
+    
+    fig, ax = plt.subplots()
+    x_axis = np.linspace(1, args.rounds, args.rounds)
+    # x_axis = np.linspace(1, 42,42)
+
+    ax.plot( x_axis,  poison_targs, '-', color='red', alpha=0.9, label = "Mean of " +str(args.Magents)+" Malicous Agent +- std")
+    ax.plot( x_axis,  clean_targs, '-', color='green', alpha=0.9, label = "Mean of "+str(args.agents-args.Magents)+" Clean Agents +- std")
+    
+    ax.fill_between(x_axis, clean_targs - clean_targs_std, clean_targs + clean_targs_std, alpha=0.4, color = "green")
+    ax.fill_between(x_axis, poison_targs - poison_targs_std, poison_targs + poison_targs_std, alpha=0.4, color = "red")
+    
+    
+    ax.legend() 
+    if args.type == "targ":
+        plt.ylim([0,1])
+        plt.ylabel("Fraction of Target Actions")
+    else:
+        plt.ylabel("Mean-Reward-Per-Episode")
+    plt.xlabel("Coummunication Rounds (" + str(args.episodes)+" training episodes per round)")
+
+    plt.title("Agent Performance: "+ str(args.type) + ", " + str(args.learner) +  ", "  + str(args.env) +", " + str(args.agents)+" agents, "+str(args.rounds) +" rounds" )
+    
+    plt.savefig(args.resdir + "fig/"+ filename +".jpg")
+
+      
         
 
-if __name__ == '__main__':
-    # Poison_Fed_RL()
-    Evaluate_Coordinator(n_round = args.rounds, random_seed = 0, attack_flag = 1)
-    Evaluate_Coordinator_plot(n_round = args.rounds)
-    Evaluate_Agents_plot()
+if __name__ == '__main__': 
+
+    Poison_Fed_RL(random_seed = args.seed)
+    Evaluate_Coordinator(n_round = args.rounds, random_seed = args.seed, attack_flag = 1)
+    Evaluate_Coordinator_plot()
+    # Evaluate_Agents_vs_episode_plot()
+    Evaluate_Agents_vs_CRound_plot()
+    print("finish!")

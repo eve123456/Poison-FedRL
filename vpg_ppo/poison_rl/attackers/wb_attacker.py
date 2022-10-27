@@ -16,6 +16,7 @@ from poison_rl.agents.vpg import VPG
 from poison_rl.agents.ppo import PPO
 from torch.distributions import Categorical, MultivariateNormal
 
+
 class WbAttacker:
     def __init__(self, state_space, action_space, learner, maxat, maxeps, hidden_sizes=(64,64), 
                  activation=nn.Tanh, learning_rate=3e-4, gamma=0.9, device="cpu", 
@@ -465,7 +466,7 @@ class WbAttacker:
             return cur_r.tolist(), dist_distance
         else:
             # self.dist_list = np.append(self.dist_list, np.array([dist_distance]))
-            self.dist_list = np.append(self.dist_list, dist_distance.detach().numpy())
+            self.dist_list = np.append(self.dist_list, dist_distance.detach().cpu().numpy())
 
             frac = min((self.maxat - self.attack_num) / (self.maxeps - self.eps_num),1)
             self.eps_num += 1

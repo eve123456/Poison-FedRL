@@ -1,0 +1,34 @@
+nohup: ignoring input
+  0%|          | 0/3 [00:00<?, ?it/s]/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/gym/envs/registration.py:594: UserWarning: [33mWARN: The environment CartPole-v0 is out of date. You should consider upgrading to version `v1`.[0m
+  f"The environment {id} is out of date. You should consider "
+/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/gym/core.py:318: DeprecationWarning: [33mWARN: Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.[0m
+  "Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future."
+/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/gym/wrappers/step_api_compatibility.py:40: DeprecationWarning: [33mWARN: Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.[0m
+  "Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future."
+/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/gym/core.py:257: DeprecationWarning: [33mWARN: Function `env.seed(seed)` is marked as deprecated and will be removed in the future. Please use `env.reset(seed=seed)` instead.[0m
+  "Function `env.seed(seed)` is marked as deprecated and will be removed in the future. "
+  0%|          | 0/3 [00:01<?, ?it/s]
+
+
+Federated Round 1
+Poisoning...
+Episode 3 / 3
+total attacks: 3
+
+update number: 3
+Clean Local Training...Agent 1
+Episode 3 / 3
+Clean Local Training...Agent 2
+Episode 3 / 3
+Traceback (most recent call last):
+  File "main.py", line 715, in <module>
+    Poison_Fed_RL(random_seed = 100)
+  File "main.py", line 432, in Poison_Fed_RL
+    i_checkpoint = torch.load(args.moddir + i_filename)
+  File "/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/torch/serialization.py", line 699, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/torch/serialization.py", line 230, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/torch/serialization.py", line 211, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: 'models_NT/Oct_25/CartPole-v0_vpg_A3_C3_n3CartPole-v0_vpg_A3_C3_n3_wb_reward_s0.05_m10_r1_f1_c1'

@@ -1,0 +1,1020 @@
+nohup: ignoring input
+  0%|          | 0/200 [00:00<?, ?it/s]/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/gym/envs/registration.py:594: UserWarning: [33mWARN: The environment CartPole-v0 is out of date. You should consider upgrading to version `v1`.[0m
+  f"The environment {id} is out of date. You should consider "
+/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/gym/core.py:318: DeprecationWarning: [33mWARN: Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.[0m
+  "Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future."
+/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/gym/wrappers/step_api_compatibility.py:40: DeprecationWarning: [33mWARN: Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.[0m
+  "Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future."
+  0%|          | 1/200 [00:06<22:40,  6.83s/it]  1%|          | 2/200 [00:12<20:20,  6.17s/it]  2%|▏         | 3/200 [00:19<21:53,  6.67s/it]  2%|▏         | 4/200 [00:27<22:57,  7.03s/it]  2%|▎         | 5/200 [00:39<29:01,  8.93s/it]  3%|▎         | 6/200 [00:45<25:58,  8.03s/it]  4%|▎         | 7/200 [00:51<23:25,  7.28s/it]  4%|▍         | 8/200 [00:59<23:45,  7.43s/it]
+
+Federated Round 1
+Poisoning...
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+Episode 50 / 50
+Clean Local Training...Agent 2
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c1_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c1_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c1_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c1_clean_a2
+
+
+Federated Round 2
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c1_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c1_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c1_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c1_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c2_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c2_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c2_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c2_clean_a2
+
+
+Federated Round 3
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c2_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c2_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c2_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c2_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c3_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c3_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c3_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c3_clean_a2
+
+
+Federated Round 4
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c3_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c3_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c3_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c3_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c4_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c4_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c4_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c4_clean_a2
+
+
+Federated Round 5
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c4_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c4_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c4_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c4_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c5_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c5_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c5_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c5_clean_a2
+
+
+Federated Round 6
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c5_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c5_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c5_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c5_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c6_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c6_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c6_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c6_clean_a2
+
+
+Federated Round 7
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c6_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c6_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c6_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c6_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c7_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c7_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c7_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c7_clean_a2
+
+
+Federated Round 8
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c7_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c7_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c7_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c7_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c8_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c8_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c8_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c8_clean_a2
+
+
+Federated Round 9
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c8_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c8_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c8_a4_wb_reward_s0.05_m10_r1_f1  4%|▍         | 9/200 [01:05<22:17,  7.00s/it]  5%|▌         | 10/200 [01:18<28:21,  8.96s/it]  6%|▌         | 11/200 [02:37<1:35:22, 30.28s/it]  6%|▌         | 12/200 [03:10<1:37:13, 31.03s/it]  6%|▋         | 13/200 [04:00<1:54:56, 36.88s/it]  7%|▋         | 14/200 [04:32<1:49:52, 35.45s/it]  8%|▊         | 15/200 [05:02<1:43:40, 33.62s/it]  8%|▊         | 16/200 [05:23<1:31:38, 29.88s/it]
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c8_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c9_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c9_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c9_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c9_clean_a2
+
+
+Federated Round 10
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c9_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c9_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c9_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c9_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c10_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c10_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c10_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c10_clean_a2
+
+
+Federated Round 11
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c10_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c10_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c10_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c10_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c11_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c11_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c11_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c11_clean_a2
+
+
+Federated Round 12
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c11_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c11_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c11_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c11_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c12_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c12_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c12_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c12_clean_a2
+
+
+Federated Round 13
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c12_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c12_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c12_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c12_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c13_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c13_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c13_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c13_clean_a2
+
+
+Federated Round 14
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c13_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c13_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c13_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c13_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c14_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c14_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c14_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c14_clean_a2
+
+
+Federated Round 15
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c14_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c14_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c14_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c14_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c15_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c15_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c15_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c15_clean_a2
+
+
+Federated Round 16
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c15_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c15_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c15_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c15_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c16_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c16_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c16_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c16_clean_a2
+
+
+Federated Round 17
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c16_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c16_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c16_a4_wb_reward_s0.05_m10_r1_f1  8%|▊         | 17/200 [06:02<1:40:06, 32.82s/it]  9%|▉         | 18/200 [06:34<1:38:11, 32.37s/it] 10%|▉         | 19/200 [07:09<1:40:19, 33.26s/it] 10%|█         | 20/200 [08:12<2:06:07, 42.04s/it] 10%|█         | 21/200 [08:56<2:07:46, 42.83s/it] 11%|█         | 22/200 [09:14<1:45:04, 35.42s/it] 12%|█▏        | 23/200 [10:02<1:55:31, 39.16s/it] 12%|█▏        | 24/200 [10:23<1:38:42, 33.65s/it]
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c16_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c17_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c17_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c17_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c17_clean_a2
+
+
+Federated Round 18
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c17_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c17_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c17_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c17_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c18_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c18_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c18_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c18_clean_a2
+
+
+Federated Round 19
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c18_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c18_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c18_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c18_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c19_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c19_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c19_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c19_clean_a2
+
+
+Federated Round 20
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c19_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c19_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c19_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c19_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c20_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c20_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c20_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c20_clean_a2
+
+
+Federated Round 21
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c20_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c20_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c20_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c20_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c21_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c21_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c21_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c21_clean_a2
+
+
+Federated Round 22
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c21_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c21_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c21_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c21_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c22_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c22_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c22_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c22_clean_a2
+
+
+Federated Round 23
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c22_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c22_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c22_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c22_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c23_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c23_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c23_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c23_clean_a2
+
+
+Federated Round 24
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c23_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c23_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c23_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c23_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c24_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c24_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c24_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c24_clean_a2
+
+
+Federated Round 25
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c24_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c24_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c24_a4_wb_reward_s0.05_m10_r1_f1 12%|█▎        | 25/200 [10:46<1:28:43, 30.42s/it] 13%|█▎        | 26/200 [11:39<1:47:45, 37.16s/it] 14%|█▎        | 27/200 [12:03<1:35:27, 33.11s/it] 14%|█▍        | 28/200 [12:15<1:17:25, 27.01s/it] 14%|█▍        | 29/200 [12:27<1:03:28, 22.27s/it] 15%|█▌        | 30/200 [12:43<58:00, 20.47s/it]   16%|█▌        | 31/200 [13:20<1:11:58, 25.56s/it] 16%|█▌        | 32/200 [13:56<1:20:09, 28.63s/it]
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c24_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c25_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c25_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c25_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c25_clean_a2
+
+
+Federated Round 26
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c25_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c25_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c25_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c25_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c26_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c26_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c26_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c26_clean_a2
+
+
+Federated Round 27
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c26_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c26_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c26_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c26_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c27_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c27_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c27_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c27_clean_a2
+
+
+Federated Round 28
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c27_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c27_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c27_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c27_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c28_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c28_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c28_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c28_clean_a2
+
+
+Federated Round 29
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c28_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c28_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c28_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c28_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c29_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c29_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c29_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c29_clean_a2
+
+
+Federated Round 30
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c29_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c29_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c29_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c29_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c30_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c30_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c30_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c30_clean_a2
+
+
+Federated Round 31
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c30_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c30_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c30_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c30_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c31_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c31_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c31_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c31_clean_a2
+
+
+Federated Round 32
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c31_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c31_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c31_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c31_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c32_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c32_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c32_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c32_clean_a2
+
+
+Federated Round 33
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c32_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c32_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c32_a4_wb_reward_s0.05_m10_r1_f1 16%|█▋        | 33/200 [15:08<1:55:44, 41.58s/it] 17%|█▋        | 34/200 [16:16<2:16:58, 49.51s/it] 18%|█▊        | 35/200 [17:41<2:45:39, 60.24s/it] 18%|█▊        | 36/200 [18:42<2:45:20, 60.49s/it] 18%|█▊        | 37/200 [20:11<3:07:46, 69.12s/it] 19%|█▉        | 38/200 [21:49<3:29:16, 77.51s/it] 20%|█▉        | 39/200 [23:41<3:55:52, 87.91s/it] 20%|██        | 40/200 [25:30<4:11:49, 94.43s/it]
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c32_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c33_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c33_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c33_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c33_clean_a2
+
+
+Federated Round 34
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c33_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c33_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c33_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c33_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c34_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c34_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c34_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c34_clean_a2
+
+
+Federated Round 35
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c34_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c34_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c34_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c34_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c35_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c35_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c35_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c35_clean_a2
+
+
+Federated Round 36
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c35_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c35_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c35_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c35_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c36_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c36_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c36_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c36_clean_a2
+
+
+Federated Round 37
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c36_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c36_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c36_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c36_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c37_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c37_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c37_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c37_clean_a2
+
+
+Federated Round 38
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c37_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c37_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c37_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c37_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c38_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c38_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c38_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c38_clean_a2
+
+
+Federated Round 39
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c38_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c38_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c38_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c38_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c39_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c39_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c39_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c39_clean_a2
+
+
+Federated Round 40
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c39_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c39_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c39_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+Clean Local Training...Agent 2
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c39_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c40_malicious_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c40_malicious_a2
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c40_clean_a1
+load from  models_NT/Oct_27/CartPole-v0_vpg_A4_M2_C200_n50_wb_reward_s0.05_m10_r1_f1_c40_clean_a2
+
+
+Federated Round 41
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c40_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Poisoning...
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c40_a4_wb_reward_s0.05_m10_r1_f1
+Episode 50 / 50
+total attacks: 50
+
+update number: 50
+Clean Local Training...Agent 1
+load from  models_NT/Oct_27/CO_CartPole-v0_vpg_A4_M2_C200_n50_c40_a4_wb_reward_s0.05_m10_r1_f1 20%|██        | 41/200 [27:07<4:11:59, 95.09s/it] 21%|██        | 42/200 [28:56<4:21:14, 99.20s/it] 22%|██▏       | 43/200 [30:31<4:16:47, 98.14s/it] 22%|██▏       | 44/200 [32:21<4:23:52, 101.49s/it]

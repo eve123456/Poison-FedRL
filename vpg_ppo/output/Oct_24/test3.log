@@ -1,0 +1,10 @@
+nohup: ignoring input
+  0%|          | 0/200 [00:00<?, ?it/s]/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/gym/envs/registration.py:594: UserWarning: [33mWARN: The environment CartPole-v0 is out of date. You should consider upgrading to version `v1`.[0m
+  f"The environment {id} is out of date. You should consider "
+/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/gym/core.py:318: DeprecationWarning: [33mWARN: Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.[0m
+  "Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future."
+/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/gym/wrappers/step_api_compatibility.py:40: DeprecationWarning: [33mWARN: Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.[0m
+  "Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future."
+/home/eve/miniconda3/envs/poison-fedrl/lib/python3.7/site-packages/gym/core.py:257: DeprecationWarning: [33mWARN: Function `env.seed(seed)` is marked as deprecated and will be removed in the future. Please use `env.reset(seed=seed)` instead.[0m
+  "Function `env.seed(seed)` is marked as deprecated and will be removed in the future. "
+  0%|          | 1/200 [00:05<18:33,  5.60s/it]  1%|          | 2/200 [00:12<20:58,  6.36s/it]  2%|▏         | 3/200 [00:27<34:11, 10.41s/it]  2%|▏         | 4/200 [00:45<44:04, 13.49s/it]  2%|▎         | 5/200 [01:21<1:10:04, 21.56s/it]  3%|▎         | 6/200 [02:10<1:39:01, 30.62s/it]

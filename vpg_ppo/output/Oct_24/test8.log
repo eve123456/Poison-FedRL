@@ -1,0 +1,11 @@
+nohup: ignoring input
+usage: main.py [-h] [--device DEVICE] [--run RUN] [--env ENV] [--steps STEPS]
+               [--learner LEARNER] [--lr LR] [--gamma GAMMA] [--agents AGENTS]
+               [--rounds ROUNDS] [--episodes EPISODES] [--seed SEED]
+               [--norm NORM] [--stepsize STEPSIZE] [--maxiter MAXITER]
+               [--radius RADIUS] [--radius-s RADIUS_S] [--radius-a RADIUS_A]
+               [--radius-r RADIUS_R] [--frac FRAC] [--type TYPE] [--aim AIM]
+               [--attack] [--no-attack] [--compute] [--no-compute]
+               [--logdir LOGDIR] [--resdir RESDIR] [--moddir MODDIR]
+               [--loadfile LOADFILE]
+main.py: error: unrecognized arguments: --Magents 2
